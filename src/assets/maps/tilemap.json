@@ -171,7 +171,7 @@
                  "gid":492,
                  "height":106,
                  "id":338,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -199,7 +199,7 @@
                  "gid":493,
                  "height":70,
                  "id":339,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -227,7 +227,7 @@
                  "gid":495,
                  "height":111,
                  "id":341,
-                 "name":"",
+                 "name":"tribune_full",
                  "properties":[
                         {
                          "name":"h",
@@ -255,7 +255,7 @@
                  "gid":493,
                  "height":70,
                  "id":343,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -283,7 +283,7 @@
                  "gid":493,
                  "height":70,
                  "id":344,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -311,7 +311,7 @@
                  "gid":493,
                  "height":70,
                  "id":345,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -339,7 +339,7 @@
                  "gid":492,
                  "height":106,
                  "id":346,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -367,7 +367,7 @@
                  "gid":493,
                  "height":70,
                  "id":347,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -395,7 +395,7 @@
                  "gid":492,
                  "height":106,
                  "id":348,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -423,7 +423,7 @@
                  "gid":493,
                  "height":70,
                  "id":349,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -451,7 +451,7 @@
                  "gid":492,
                  "height":106,
                  "id":350,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -479,7 +479,7 @@
                  "gid":493,
                  "height":70,
                  "id":351,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -507,7 +507,7 @@
                  "gid":492,
                  "height":106,
                  "id":352,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -535,7 +535,7 @@
                  "gid":493,
                  "height":70,
                  "id":353,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -591,7 +591,7 @@
                  "gid":493,
                  "height":70,
                  "id":355,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -619,7 +619,7 @@
                  "gid":492,
                  "height":106,
                  "id":356,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -647,7 +647,7 @@
                  "gid":493,
                  "height":70,
                  "id":357,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -675,7 +675,7 @@
                  "gid":492,
                  "height":106,
                  "id":358,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -731,7 +731,7 @@
                  "gid":493,
                  "height":70,
                  "id":360,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -759,7 +759,7 @@
                  "gid":492,
                  "height":106,
                  "id":361,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -787,7 +787,7 @@
                  "gid":492,
                  "height":106,
                  "id":362,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -815,7 +815,7 @@
                  "gid":493,
                  "height":70,
                  "id":363,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -843,7 +843,7 @@
                  "gid":493,
                  "height":70,
                  "id":364,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -871,7 +871,7 @@
                  "gid":492,
                  "height":106,
                  "id":365,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -899,7 +899,7 @@
                  "gid":492,
                  "height":106,
                  "id":366,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -927,7 +927,7 @@
                  "gid":493,
                  "height":70,
                  "id":367,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -955,7 +955,7 @@
                  "gid":493,
                  "height":70,
                  "id":368,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -983,7 +983,7 @@
                  "gid":493,
                  "height":70,
                  "id":369,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1011,7 +1011,7 @@
                  "gid":492,
                  "height":106,
                  "id":370,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1039,7 +1039,7 @@
                  "gid":492,
                  "height":106,
                  "id":371,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1067,7 +1067,7 @@
                  "gid":492,
                  "height":106,
                  "id":372,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1095,7 +1095,7 @@
                  "gid":492,
                  "height":106,
                  "id":373,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1123,7 +1123,7 @@
                  "gid":493,
                  "height":70,
                  "id":374,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1151,7 +1151,7 @@
                  "gid":493,
                  "height":70,
                  "id":375,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1179,7 +1179,7 @@
                  "gid":493,
                  "height":70,
                  "id":376,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1207,7 +1207,7 @@
                  "gid":492,
                  "height":106,
                  "id":377,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1235,7 +1235,7 @@
                  "gid":493,
                  "height":70,
                  "id":378,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1263,7 +1263,7 @@
                  "gid":492,
                  "height":106,
                  "id":379,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1291,7 +1291,7 @@
                  "gid":493,
                  "height":70,
                  "id":380,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1319,7 +1319,7 @@
                  "gid":492,
                  "height":106,
                  "id":381,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1347,7 +1347,7 @@
                  "gid":493,
                  "height":70,
                  "id":382,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1375,7 +1375,7 @@
                  "gid":492,
                  "height":106,
                  "id":383,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1403,7 +1403,7 @@
                  "gid":493,
                  "height":70,
                  "id":384,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1431,7 +1431,7 @@
                  "gid":493,
                  "height":70,
                  "id":385,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1459,7 +1459,7 @@
                  "gid":492,
                  "height":106,
                  "id":386,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1487,7 +1487,7 @@
                  "gid":493,
                  "height":70,
                  "id":387,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1515,7 +1515,7 @@
                  "gid":492,
                  "height":106,
                  "id":388,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1543,7 +1543,7 @@
                  "gid":493,
                  "height":70,
                  "id":389,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1571,7 +1571,7 @@
                  "gid":493,
                  "height":70,
                  "id":390,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1599,7 +1599,7 @@
                  "gid":492,
                  "height":106,
                  "id":391,
-                 "name":"",
+                 "name":"tree_large",
                  "properties":[
                         {
                          "name":"h",
@@ -1627,7 +1627,7 @@
                  "gid":495,
                  "height":111,
                  "id":392,
-                 "name":"",
+                 "name":"tribune_full",
                  "properties":[
                         {
                          "name":"h",
@@ -1655,7 +1655,7 @@
                  "gid":493,
                  "height":70,
                  "id":393,
-                 "name":"",
+                 "name":"tree_small",
                  "properties":[
                         {
                          "name":"h",
@@ -1683,7 +1683,7 @@
                  "gid":484,
                  "height":64,
                  "id":394,
-                 "name":"",
+                 "name":"tent_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -1711,7 +1711,7 @@
                  "gid":484,
                  "height":64,
                  "id":395,
-                 "name":"",
+                 "name":"tent_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -1739,7 +1739,7 @@
                  "gid":497,
                  "height":72,
                  "id":396,
-                 "name":"",
+                 "name":"tribune_overhang_striped",
                  "properties":[
                         {
                          "name":"h",
@@ -1767,7 +1767,7 @@
                  "gid":496,
                  "height":72,
                  "id":397,
-                 "name":"",
+                 "name":"tribune_overhang_red",
                  "properties":[
                         {
                          "name":"h",
@@ -1795,7 +1795,7 @@
                  "gid":474,
                  "height":31,
                  "id":398,
-                 "name":"",
+                 "name":"barrier_white_race",
                  "properties":[
                         {
                          "name":"h",
@@ -1823,7 +1823,7 @@
                  "gid":474,
                  "height":31,
                  "id":399,
-                 "name":"",
+                 "name":"barrier_white_race",
                  "properties":[
                         {
                          "name":"h",
@@ -1851,7 +1851,7 @@
                  "gid":473,
                  "height":31,
                  "id":400,
-                 "name":"",
+                 "name":"barrier_white",
                  "properties":[
                         {
                          "name":"h",
@@ -1879,7 +1879,7 @@
                  "gid":471,
                  "height":31,
                  "id":401,
-                 "name":"",
+                 "name":"barrier_red",
                  "properties":[
                         {
                          "name":"h",
@@ -1907,7 +1907,7 @@
                  "gid":469,
                  "height":28,
                  "id":402,
-                 "name":"",
+                 "name":"barrel_red",
                  "properties":[
                         {
                          "name":"h",
@@ -1935,7 +1935,7 @@
                  "gid":469,
                  "height":28,
                  "id":404,
-                 "name":"",
+                 "name":"barrel_red",
                  "properties":[
                         {
                          "name":"h",
@@ -1963,7 +1963,7 @@
                  "gid":469,
                  "height":28,
                  "id":405,
-                 "name":"",
+                 "name":"barrel_red",
                  "properties":[
                         {
                          "name":"h",
@@ -1991,7 +1991,7 @@
                  "gid":469,
                  "height":28,
                  "id":406,
-                 "name":"",
+                 "name":"barrel_red",
                  "properties":[
                         {
                          "name":"h",
@@ -2019,7 +2019,7 @@
                  "gid":469,
                  "height":28,
                  "id":407,
-                 "name":"",
+                 "name":"barrel_red",
                  "properties":[
                         {
                          "name":"h",
@@ -2047,7 +2047,7 @@
                  "gid":469,
                  "height":28,
                  "id":409,
-                 "name":"",
+                 "name":"barrel_red",
                  "properties":[
                         {
                          "name":"h",
@@ -2075,7 +2075,7 @@
                  "gid":469,
                  "height":28,
                  "id":410,
-                 "name":"",
+                 "name":"barrel_red",
                  "properties":[
                         {
                          "name":"h",
@@ -2103,7 +2103,7 @@
                  "gid":467,
                  "height":28,
                  "id":411,
-                 "name":"",
+                 "name":"barrel_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -2131,7 +2131,7 @@
                  "gid":467,
                  "height":28,
                  "id":412,
-                 "name":"",
+                 "name":"barrel_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -2159,7 +2159,7 @@
                  "gid":467,
                  "height":28,
                  "id":413,
-                 "name":"",
+                 "name":"barrel_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -2187,7 +2187,7 @@
                  "gid":467,
                  "height":28,
                  "id":414,
-                 "name":"",
+                 "name":"barrel_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -2215,7 +2215,7 @@
                  "gid":467,
                  "height":28,
                  "id":415,
-                 "name":"",
+                 "name":"barrel_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -2243,7 +2243,7 @@
                  "gid":467,
                  "height":28,
                  "id":416,
-                 "name":"",
+                 "name":"barrel_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -2271,7 +2271,7 @@
                  "gid":467,
                  "height":28,
                  "id":417,
-                 "name":"",
+                 "name":"barrel_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -2299,7 +2299,7 @@
                  "gid":467,
                  "height":28,
                  "id":418,
-                 "name":"",
+                 "name":"barrel_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -2327,7 +2327,7 @@
                  "gid":467,
                  "height":28,
                  "id":419,
-                 "name":"",
+                 "name":"barrel_blue",
                  "properties":[
                         {
                          "name":"h",
@@ -2355,7 +2355,7 @@
                  "gid":478,
                  "height":22,
                  "id":423,
-                 "name":"",
+                 "name":"cone_down",
                  "properties":[
                         {
                          "name":"h",
@@ -2383,7 +2383,7 @@
                  "gid":478,
                  "height":22,
                  "id":424,
-                 "name":"",
+                 "name":"cone_down",
                  "properties":[
                         {
                          "name":"h",
@@ -2411,7 +2411,7 @@
                  "gid":478,
                  "height":22,
                  "id":425,
-                 "name":"",
+                 "name":"cone_down",
                  "properties":[
                         {
                          "name":"h",
@@ -2439,7 +2439,7 @@
                  "gid":489,
                  "height":28,
                  "id":426,
-                 "name":"",
+                 "name":"tires_red_alt",
                  "properties":[
                         {
                          "name":"h",
@@ -2467,7 +2467,7 @@
                  "gid":489,
                  "height":28,
                  "id":427,
-                 "name":"",
+                 "name":"tires_red_alt",
                  "properties":[
                         {
                          "name":"h",
@@ -2495,7 +2495,7 @@
                  "gid":489,
                  "height":28,
                  "id":428,
-                 "name":"",
+                 "name":"tires_red_alt",
                  "properties":[
                         {
                          "name":"h",
@@ -2523,7 +2523,7 @@
                  "gid":491,
                  "height":28,
                  "id":429,
-                 "name":"",
+                 "name":"tires_white_alt",
                  "properties":[
                         {
                          "name":"h",
@@ -2551,7 +2551,7 @@
                  "gid":491,
                  "height":28,
                  "id":430,
-                 "name":"",
+                 "name":"tires_white_alt",
                  "properties":[
                         {
                          "name":"h",

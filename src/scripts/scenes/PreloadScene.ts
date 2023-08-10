@@ -2,6 +2,8 @@ import { Scene } from "phaser";
 import { LoadingBar } from "../classes/LoadingBar";
 import tileSetPng from "../../assets/maps/tileset.png";
 import tilemapJson from "../../assets/maps/tilemap.json";
+import objectPng from "../../assets/objects/objects.png";
+import objectJson from "../../assets/objects/objects.json";
 
 class PreloadScene extends Scene {
   private _loadingBar: LoadingBar;
@@ -21,6 +23,8 @@ class PreloadScene extends Scene {
     });
 
     this.load.tilemapTiledJSON("tilemap", tilemapJson);
+
+    this.load.atlas("objects", objectPng, objectJson);
   }
 
   create() {

@@ -24,10 +24,31 @@ class RaceTrack {
       1
     );
 
+    this._createLayers();
+    this._createCollisions();
+  }
+
+  private _createLayers() {
     this._tilemap.createLayer("grass", this._tileset);
     this._tilemap.createLayer("ground", this._tileset);
     this._tilemap.createLayer("sand", this._tileset);
     this._tilemap.createLayer("road", this._tileset);
+  }
+
+  private _createCollisions() {
+    const collisionLayer = this._tilemap.getObjectLayer("collisions");
+
+    collisionLayer.objects.forEach((element) => {
+      const sprite = this._scene.matter.add.sprite(
+        element.x,
+        element.y,
+        "objects",
+        element.name
+      );
+
+      sprite.setOrigin(0, 1);
+      sprite.setStatic(true);
+    });
   }
 }
 
