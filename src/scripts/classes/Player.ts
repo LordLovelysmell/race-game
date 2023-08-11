@@ -7,6 +7,12 @@ enum DIRECTIONS {
   FORWARD = 1,
 }
 
+enum TURNS {
+  LEFT = -1,
+  NONE = 0,
+  RIGHT = 1,
+}
+
 interface PlayerProps {
   raceTrack: RaceTrack;
   scene: Scene;
@@ -16,7 +22,7 @@ class Player {
   private _raceTrack: RaceTrack;
   private _scene: Scene;
   private _playerCar: Phaser.Physics.Matter.Sprite;
-  private _speed = 600;
+  private _speed = 400;
   private _cursors: Phaser.Types.Input.Keyboard.CursorKeys;
 
   constructor({ raceTrack, scene }: PlayerProps) {
@@ -31,6 +37,8 @@ class Player {
       "objects",
       "car_blue_1"
     );
+
+    this._playerCar.setFixedRotation();
 
     this._cursors = this._scene.input.keyboard.createCursorKeys();
 
@@ -57,6 +65,20 @@ class Player {
     }
   }
 
+  private get _turn() {
+    if (this._cursors.left.isDown) {
+      return TURNS.LEFT;
+    } else if (this._cursors.right.isDown) {
+      return TURNS.RIGHT;
+    } else {
+      return TURNS.NONE;
+    }
+  }
+
+  private get _angle() {
+    return this._playerCar.angle + this._turn * 2.5;
+  }
+
   private get _velocity() {
     return this._speed * this._direction;
   }
@@ -71,6 +93,7 @@ class Player {
   public move(deltaTime: number) {
     const velocity = this._getVelocityFromAngle().scale(deltaTime);
     this._playerCar.setVelocity(velocity.x, velocity.y);
+    this._playerCar.setAngle(this._angle);
   }
 }
 
