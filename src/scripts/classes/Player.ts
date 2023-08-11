@@ -26,6 +26,7 @@ class Player {
   private _acceleration = 2;
   private _currentVelocity = 0;
   private _cursors: Phaser.Types.Input.Keyboard.CursorKeys;
+  private _isInCollision: boolean = false;
 
   constructor({ raceTrack, scene }: PlayerProps) {
     this._raceTrack = raceTrack;
@@ -41,6 +42,17 @@ class Player {
     );
 
     this._playerCar.setFixedRotation();
+
+    this._playerCar.setOnCollideActive(() => {
+      if (this._currentVelocity !== 0) {
+        this._currentVelocity /= 1.5;
+        this._isInCollision = true;
+      }
+    });
+
+    this._playerCar.setOnCollideEnd(() => {
+      this._isInCollision = false;
+    });
 
     this._cursors = this._scene.input.keyboard.createCursorKeys();
 
@@ -68,6 +80,10 @@ class Player {
   }
 
   private get _turn() {
+    if (Math.abs(this._velocity) < 10 && !this._isInCollision) {
+      return TURNS.NONE;
+    }
+
     if (this._cursors.left.isDown) {
       return TURNS.LEFT;
     } else if (this._cursors.right.isDown) {
