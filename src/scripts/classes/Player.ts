@@ -187,10 +187,8 @@ class Player {
       checkpoint.id === 1 &&
       this._lastCheckpoint === this._raceTrack.checkpoints.length
     ) {
-      this._currentLap++;
       this._lastCheckpoint = 1;
-
-      this._playerCar.emit("newlap", this._currentLap);
+      this._playerCar.emit("newlap");
     }
   }
 
