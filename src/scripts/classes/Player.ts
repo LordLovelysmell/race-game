@@ -22,7 +22,9 @@ class Player {
   private _raceTrack: RaceTrack;
   private _scene: Scene;
   private _playerCar: Phaser.Physics.Matter.Sprite;
-  private _speed = 400;
+  private _speed = 600;
+  private _acceleration = 2;
+  private _currentVelocity = 0;
   private _cursors: Phaser.Types.Input.Keyboard.CursorKeys;
 
   constructor({ raceTrack, scene }: PlayerProps) {
@@ -76,11 +78,34 @@ class Player {
   }
 
   private get _angle() {
-    return this._playerCar.angle + this._turn * 2.5;
+    return (
+      this._playerCar.angle +
+      this._turn *
+        Math.max(Math.abs(this._currentVelocity - this._speed) / 450, 1)
+    );
   }
 
   private get _velocity() {
-    return this._speed * this._direction;
+    const speed = Math.abs(this._currentVelocity);
+
+    if (this._direction !== DIRECTIONS.NONE && speed < this._speed) {
+      this._currentVelocity += this._acceleration * Math.sign(this._direction);
+    } else if (speed > 0) {
+      console.log("stopping");
+
+      this._currentVelocity -=
+        this._acceleration * Math.sign(this._currentVelocity) * 0.33;
+    }
+
+    if (this._direction === DIRECTIONS.BACKWARD && this._currentVelocity > 0) {
+      console.log("braking");
+
+      this._currentVelocity -=
+        this._acceleration *
+        Math.max(Math.abs(this._currentVelocity - this._speed) / 300, 2);
+    }
+
+    return this._currentVelocity;
   }
 
   private _getVelocityFromAngle(): PhaserMath.Vector2 {
