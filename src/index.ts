@@ -3,6 +3,8 @@ import { BootScene } from "./scripts/scenes/BootScene";
 import { GameScene } from "./scripts/scenes/GameScene";
 import { PreloadScene } from "./scripts/scenes/PreloadScene";
 
+import "./index.scss";
+
 const config: Types.Core.GameConfig = {
   type: AUTO,
   width: 1280,
@@ -15,7 +17,7 @@ const config: Types.Core.GameConfig = {
   physics: {
     default: "matter",
     matter: {
-      debug: false,
+      debug: true,
       gravity: { x: 0, y: 0 },
     },
   },

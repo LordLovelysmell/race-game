@@ -40,15 +40,25 @@ class RaceTrack {
 
     collisionLayer.objects.forEach((element) => {
       const sprite = this._scene.matter.add.sprite(
-        element.x,
-        element.y,
+        element.x + element.width / 2,
+        element.y - element.height / 2,
         "objects",
         element.name
       );
 
-      sprite.setOrigin(0, 1);
+      // sprite.setOrigin(0, 1);
       sprite.setStatic(true);
     });
+  }
+
+  public get playerPosition() {
+    return this._tilemap.findObject("player", (element) => {
+      return element.name === "player";
+    });
+  }
+
+  public get tilemap() {
+    return this._tilemap;
   }
 }
 
