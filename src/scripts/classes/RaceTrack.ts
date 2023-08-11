@@ -1,4 +1,11 @@
-import { Scene, Tilemaps } from "phaser";
+import { GameObjects, Scene, Tilemaps } from "phaser";
+
+const GRASS_FRICTION = 0.3;
+const ROADS_FRICTION = {
+  road: 1,
+  ground: 0.5,
+  sand: 0.4,
+};
 
 class RaceTrack {
   private _scene: Scene;
@@ -46,7 +53,6 @@ class RaceTrack {
         element.name
       );
 
-      // sprite.setOrigin(0, 1);
       sprite.setStatic(true);
     });
   }
@@ -59,6 +65,24 @@ class RaceTrack {
 
   public get tilemap() {
     return this._tilemap;
+  }
+
+  public getTileFriction(sprite: GameObjects.Sprite) {
+    for (let road in ROADS_FRICTION) {
+      let tile = this.tilemap.getTileAtWorldXY(
+        sprite.x,
+        sprite.y,
+        false,
+        this._scene.cameras.main,
+        road
+      );
+
+      if (tile) {
+        return ROADS_FRICTION[road];
+      }
+    }
+
+    return GRASS_FRICTION;
   }
 }
 

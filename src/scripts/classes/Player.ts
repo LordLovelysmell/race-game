@@ -88,13 +88,13 @@ class Player {
   private get _velocity() {
     const speed = Math.abs(this._currentVelocity);
 
-    if (this._direction !== DIRECTIONS.NONE && speed < this._speed) {
+    if (this._direction !== DIRECTIONS.NONE && speed < this._maxSpeed) {
       this._currentVelocity += this._acceleration * Math.sign(this._direction);
-    } else if (speed > 0) {
+    } else if (speed > this._maxSpeed || speed > 0) {
       console.log("stopping");
 
       this._currentVelocity -=
-        this._acceleration * Math.sign(this._currentVelocity) * 0.33;
+        this._acceleration * Math.sign(this._currentVelocity) * 0.75;
     }
 
     if (this._direction === DIRECTIONS.BACKWARD && this._currentVelocity > 0) {
@@ -102,7 +102,7 @@ class Player {
 
       this._currentVelocity -=
         this._acceleration *
-        Math.max(Math.abs(this._currentVelocity - this._speed) / 300, 2);
+        Math.max(Math.abs(this._currentVelocity - this._maxSpeed) / 300, 2);
     }
 
     return this._currentVelocity;
@@ -113,6 +113,10 @@ class Player {
       this._playerCar.rotation - Math.PI / 2,
       this._velocity
     );
+  }
+
+  private get _maxSpeed() {
+    return this._speed * this._raceTrack.getTileFriction(this._playerCar);
   }
 
   public move(deltaTime: number) {
