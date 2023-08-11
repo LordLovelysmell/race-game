@@ -1,4 +1,10 @@
-import { GameObjects, Scene, Tilemaps } from "phaser";
+import { Physics, Scene, Tilemaps } from "phaser";
+import { Checkpoint } from "./Checkpoint";
+
+interface CreateObjectsFromLayerProps {
+  layerName: string;
+  isSensor?: boolean;
+}
 
 const GRASS_FRICTION = 0.3;
 const ROADS_FRICTION = {
@@ -11,6 +17,7 @@ class RaceTrack {
   private _scene: Scene;
   private _tilemap: Tilemaps.Tilemap;
   private _tileset: Tilemaps.Tileset;
+  private _checkpoints: Checkpoint[] = [];
 
   constructor(scene: Scene) {
     this._scene = scene;
@@ -32,7 +39,9 @@ class RaceTrack {
     );
 
     this._createLayers();
-    this._createCollisions();
+    this._createObjectsFromLayer({ layerName: "collisions" });
+    this._createObjectsFromLayer({ layerName: "oils", isSensor: true });
+    this._createCheckpoints();
   }
 
   private _createLayers() {
@@ -42,10 +51,13 @@ class RaceTrack {
     this._tilemap.createLayer("road", this._tileset);
   }
 
-  private _createCollisions() {
-    const collisionLayer = this._tilemap.getObjectLayer("collisions");
+  private _createObjectsFromLayer({
+    layerName,
+    isSensor = false,
+  }: CreateObjectsFromLayerProps) {
+    const layer = this._tilemap.getObjectLayer(layerName);
 
-    collisionLayer.objects.forEach((element) => {
+    layer.objects.forEach((element) => {
       const sprite = this._scene.matter.add.sprite(
         element.x + element.width / 2,
         element.y - element.height / 2,
@@ -54,6 +66,33 @@ class RaceTrack {
       );
 
       sprite.setStatic(true);
+      sprite.setSensor(isSensor);
+    });
+  }
+
+  private _createCheckpoints() {
+    interface Property {
+      name: string;
+      type: string;
+      value: string;
+    }
+
+    const checkpointLayer = this._tilemap.getObjectLayer("checkpoints");
+
+    checkpointLayer.objects.forEach(({ x, y, width, height, properties }) => {
+      const prop: Property = (properties as Property[]).find(
+        (property) => property.name === "value"
+      );
+
+      const checkpoint = new Checkpoint({
+        id: Number(prop.value),
+        x,
+        y,
+        width,
+        height,
+      });
+
+      this._checkpoints.push(checkpoint);
     });
   }
 
@@ -67,7 +106,11 @@ class RaceTrack {
     return this._tilemap;
   }
 
-  public getTileFriction(sprite: GameObjects.Sprite) {
+  public get checkpoints() {
+    return this._checkpoints;
+  }
+
+  public getTileFriction(sprite: Physics.Matter.Sprite) {
     for (let road in ROADS_FRICTION) {
       let tile = this.tilemap.getTileAtWorldXY(
         sprite.x,

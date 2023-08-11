@@ -1,5 +1,6 @@
-import { Scene, Math as PhaserMath } from "phaser";
+import { Scene, Math as PhaserMath, Types } from "phaser";
 import type { RaceTrack } from "./RaceTrack";
+import { Checkpoint } from "./Checkpoint";
 
 enum DIRECTIONS {
   BACKWARD = -1,
@@ -27,6 +28,8 @@ class Player {
   private _currentVelocity = 0;
   private _cursors: Phaser.Types.Input.Keyboard.CursorKeys;
   private _isInCollision: boolean = false;
+  private _lastCheckpoint = 0;
+  private _currentLap: number = 0;
 
   constructor({ raceTrack, scene }: PlayerProps) {
     this._raceTrack = raceTrack;
@@ -43,12 +46,26 @@ class Player {
 
     this._playerCar.setFixedRotation();
 
-    this._playerCar.setOnCollideActive(() => {
-      if (this._currentVelocity !== 0) {
-        this._currentVelocity /= 1.5;
-        this._isInCollision = true;
+    this._playerCar.setName("player-car");
+
+    this._playerCar.setOnCollideActive(
+      ({
+        bodyA,
+        bodyB,
+        isSensor,
+      }: Types.Physics.Matter.MatterCollisionPair) => {
+        if (
+          bodyA.gameObject.frame.name === "oil" &&
+          bodyB.gameObject.name === this._playerCar.name
+        ) {
+          this.slide();
+        }
+        if (this._currentVelocity !== 0 && !isSensor) {
+          this._currentVelocity /= 1.5;
+          this._isInCollision = true;
+        }
       }
-    });
+    );
 
     this._playerCar.setOnCollideEnd(() => {
       this._isInCollision = false;
@@ -107,14 +124,14 @@ class Player {
     if (this._direction !== DIRECTIONS.NONE && speed < this._maxSpeed) {
       this._currentVelocity += this._acceleration * Math.sign(this._direction);
     } else if (speed > this._maxSpeed || speed > 0) {
-      console.log("stopping");
+      // stopping
 
       this._currentVelocity -=
         this._acceleration * Math.sign(this._currentVelocity) * 0.75;
     }
 
     if (this._direction === DIRECTIONS.BACKWARD && this._currentVelocity > 0) {
-      console.log("braking");
+      // braking
 
       this._currentVelocity -=
         this._acceleration *
@@ -139,6 +156,46 @@ class Player {
     const velocity = this._getVelocityFromAngle().scale(deltaTime);
     this._playerCar.setVelocity(velocity.x, velocity.y);
     this._playerCar.setAngle(this._angle);
+    this._checkPosition();
+  }
+
+  public slide() {
+    if (Math.abs(this._currentVelocity) > 150) {
+      this._playerCar.setAngle(
+        this._playerCar.angle -
+          (Math.sign(Math.round(Math.random() * 2 - 1)) *
+            Math.abs(this._currentVelocity)) /
+            100
+      );
+    }
+  }
+
+  private _checkPosition() {
+    const checkpoint = this._raceTrack.checkpoints.find((checkpoint) =>
+      checkpoint.contains(this._playerCar.x, this._playerCar.y)
+    );
+
+    if (checkpoint) {
+      this._onCheckpoint(checkpoint);
+    }
+  }
+
+  private _onCheckpoint(checkpoint: Checkpoint) {
+    if (checkpoint.id === this._lastCheckpoint + 1) {
+      this._lastCheckpoint++;
+    } else if (
+      checkpoint.id === 1 &&
+      this._lastCheckpoint === this._raceTrack.checkpoints.length
+    ) {
+      this._currentLap++;
+      this._lastCheckpoint = 1;
+
+      this._playerCar.emit("newlap", this._currentLap);
+    }
+  }
+
+  public get car() {
+    return this._playerCar;
   }
 }
 
