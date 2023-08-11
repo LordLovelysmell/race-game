@@ -1,17 +1,27 @@
 import { Scene } from "phaser";
 
+export interface Statistics {
+  totalLaps: number;
+  currentLap: number;
+  totalRaceTime: number;
+  currentLapTime: number;
+  bestLapTime: number;
+}
+
+interface StatsProps {
+  totalLaps: number;
+}
+
 class Stats {
   private _totalLaps: number;
-  private _scene: Scene;
   private _currentLap: number;
   private _time: number;
   private _timeForLap: number;
   private _timeForLastLap: number;
   private _timeForBestLap: number;
 
-  constructor({ totalLaps, scene }) {
+  constructor({ totalLaps }: StatsProps) {
     this._totalLaps = totalLaps;
-    this._scene = scene;
     this._currentLap = 1;
     this._time = 0;
     this._timeForLap = 0;
@@ -42,6 +52,16 @@ class Stats {
     const seconds = deltaTime / 1000;
     this._time += seconds;
     this._timeForLap += seconds;
+  }
+
+  public get statistics(): Statistics {
+    return {
+      totalLaps: this._totalLaps,
+      currentLap: this._currentLap,
+      totalRaceTime: this._time,
+      currentLapTime: this._timeForLap,
+      bestLapTime: this._timeForBestLap,
+    };
   }
 }
 
