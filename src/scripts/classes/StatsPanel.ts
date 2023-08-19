@@ -8,7 +8,6 @@ interface StatsPanelProps {
 
 class StatsPanel {
   private _scene: Scene;
-  private _lapsCounter: Phaser.GameObjects.Text;
   private _textForBestLap: Phaser.GameObjects.Text;
   private _textForCurrentLap: Phaser.GameObjects.Text;
   private _textForTotalTime: Phaser.GameObjects.Text;
@@ -65,13 +64,9 @@ class StatsPanel {
     bestLapTime,
   }: Statistics) {
     this._textForLapsCounter.setText(`Lap ${currentLap}/${totalLaps}`);
-    this._textForTotalTime.setText(
-      `Total race time: ${totalRaceTime.toFixed(2)}`
-    );
-    this._textForCurrentLap.setText(
-      `Current lap time: ${currentLapTime.toFixed(2)}`
-    );
-    this._textForBestLap.setText(`Best lap time: ${bestLapTime.toFixed(2)}`);
+    this._textForTotalTime.setText(`Total race time: ${totalRaceTime}`);
+    this._textForCurrentLap.setText(`Current lap time: ${currentLapTime}`);
+    this._textForBestLap.setText(`Best lap time: ${bestLapTime}`);
   }
 }
 

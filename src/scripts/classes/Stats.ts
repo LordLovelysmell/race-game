@@ -58,9 +58,9 @@ class Stats {
     return {
       totalLaps: this._totalLaps,
       currentLap: this._currentLap,
-      totalRaceTime: this._time,
-      currentLapTime: this._timeForLap,
-      bestLapTime: this._timeForBestLap,
+      totalRaceTime: Number(this._time.toFixed(2)),
+      currentLapTime: Number(this._timeForLap.toFixed(2)),
+      bestLapTime: Number(this._timeForBestLap.toFixed(2)),
     };
   }
 }

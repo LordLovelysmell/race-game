@@ -3,6 +3,7 @@ import { RaceTrack } from "../classes/RaceTrack";
 import { Player } from "../classes/Player";
 import { Stats } from "../classes/Stats";
 import { StatsPanel } from "../classes/StatsPanel";
+import { StatsPopup } from "../classes/StatsPopup";
 
 class GameScene extends Scene {
   private _raceTrack: RaceTrack;
@@ -32,6 +33,10 @@ class GameScene extends Scene {
   }
 
   update(time: number, deltaTime: number) {
+    if (this._stats.wasRaceComplete) {
+      return;
+    }
+
     this._stats.update(deltaTime);
     this._statsPanel.render(this._stats.statistics);
     this._player.move(deltaTime / 1000);
@@ -41,7 +46,10 @@ class GameScene extends Scene {
     this._stats.onLapComplete();
 
     if (this._stats.wasRaceComplete) {
-      this.scene.restart();
+      const statsPopup = new StatsPopup({
+        scene: this,
+        stats: this._stats.statistics,
+      });
     }
   }
 }
