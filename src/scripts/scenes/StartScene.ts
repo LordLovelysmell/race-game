@@ -1,8 +1,10 @@
 import { Scene, Types } from "phaser";
+import { Client } from "../classes/Client";
 
 class StartScene extends Scene {
   private _onePlayerButton: Phaser.GameObjects.Text;
   private _twoPlayerButton: Phaser.GameObjects.Text;
+  private _client: Client;
 
   constructor() {
     super("Start");
@@ -49,7 +51,11 @@ class StartScene extends Scene {
   }
 
   private _requestGame() {
-    this._startGame();
+    this._client = new Client();
+    this._client.init();
+    this._client.on("game", () => {
+      this._startGame();
+    });
   }
 }
 
