@@ -96,9 +96,9 @@ class RaceTrack {
     });
   }
 
-  public get playerPosition() {
-    return this._tilemap.findObject("player", (element) => {
-      return element.name === "player";
+  public getPlayerPosition(playerKey: string) {
+    return this._tilemap.findObject(playerKey, (element) => {
+      return element.name === playerKey;
     });
   }
 

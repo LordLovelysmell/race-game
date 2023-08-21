@@ -49,7 +49,7 @@ class SocketManager {
   }
 
   private _startGame(session: Session) {
-    session.playerSocket.emit("gamestart");
+    session.playerSocket.emit("gamestart", { host: true });
     session.opponentSocket.emit("gamestart");
   }
 }

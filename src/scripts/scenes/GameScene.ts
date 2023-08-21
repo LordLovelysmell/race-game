@@ -4,6 +4,32 @@ import { Player } from "../classes/Player";
 import { Stats } from "../classes/Stats";
 import { StatsPanel } from "../classes/StatsPanel";
 import { StatsPopup } from "../classes/StatsPopup";
+import type { Client } from "../classes/Client";
+
+export interface Car {
+  sprite: string;
+  position: string;
+}
+
+interface CarsConfig {
+  player: Car;
+  opponent: Car;
+}
+
+interface SceneData {
+  client: Client;
+}
+
+const CARS = {
+  BLUE: {
+    sprite: "car_blue_1",
+    position: "player",
+  },
+  RED: {
+    sprite: "car_red_1",
+    position: "enemy",
+  },
+};
 
 class GameScene extends Scene {
   private _raceTrack: RaceTrack;
@@ -11,8 +37,10 @@ class GameScene extends Scene {
   private _totalLaps = 3;
   private _stats: Stats;
   private _statsPanel: StatsPanel;
+  private _client: Client;
+  private _opponent: Player | null;
 
-  constructor() {
+  constructor(data: any) {
     super("Game");
   }
 
@@ -20,9 +48,29 @@ class GameScene extends Scene {
     this.add.sprite(0, 0, "bg").setOrigin(0, 0);
   }
 
-  create() {
+  create(data: SceneData) {
+    if (data && data.client) {
+      this._client = data.client;
+    }
+
     this._raceTrack = new RaceTrack(this);
-    this._player = new Player({ raceTrack: this._raceTrack, scene: this });
+
+    const car = this._getCarsConfig();
+    this._player = new Player({
+      raceTrack: this._raceTrack,
+      car: car.player,
+      scene: this,
+    });
+
+    if (this._client) {
+      this._opponent = new Player({
+        raceTrack: this._raceTrack,
+        car: car.opponent,
+        scene: this,
+        isOpponent: true,
+      });
+    }
+
     this._stats = new Stats({ totalLaps: this._totalLaps });
     this._statsPanel = new StatsPanel({
       stats: this._stats.statistics,
@@ -51,6 +99,20 @@ class GameScene extends Scene {
         stats: this._stats.statistics,
       });
     }
+  }
+
+  private _getCarsConfig(): CarsConfig {
+    const config = {
+      player: CARS.BLUE,
+      opponent: CARS.RED,
+    };
+
+    if (this._client && !this._client.host) {
+      config.player = CARS.RED;
+      config.opponent = CARS.BLUE;
+    }
+
+    return config;
   }
 }
 

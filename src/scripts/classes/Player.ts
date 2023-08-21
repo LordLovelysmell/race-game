@@ -1,6 +1,7 @@
 import { Scene, Math as PhaserMath, Types } from "phaser";
 import type { RaceTrack } from "./RaceTrack";
 import { Checkpoint } from "./Checkpoint";
+import type { Car } from "../scenes/GameScene";
 
 enum DIRECTIONS {
   BACKWARD = -1,
@@ -16,6 +17,8 @@ enum TURNS {
 
 interface PlayerProps {
   raceTrack: RaceTrack;
+  car: Car;
+  isOpponent?: boolean;
   scene: Scene;
 }
 
@@ -31,22 +34,22 @@ class Player {
   private _lastCheckpoint = 0;
   private _currentLap: number = 0;
 
-  constructor({ raceTrack, scene }: PlayerProps) {
+  constructor({ raceTrack, car, isOpponent, scene }: PlayerProps) {
     this._raceTrack = raceTrack;
     this._scene = scene;
 
-    const position = this._raceTrack.playerPosition;
+    const position = this._raceTrack.getPlayerPosition(car.position);
 
     this._playerCar = this._scene.matter.add.sprite(
       position.x,
       position.y,
       "objects",
-      "car_blue_1"
+      car.sprite
     );
 
     this._playerCar.setFixedRotation();
 
-    this._playerCar.setName("player-car");
+    this._playerCar.setName(car.sprite);
 
     this._playerCar.setOnCollideActive(
       ({
@@ -73,7 +76,9 @@ class Player {
 
     this._cursors = this._scene.input.keyboard.createCursorKeys();
 
-    this._setUpCamera();
+    if (!isOpponent) {
+      this._setUpCamera();
+    }
   }
 
   private _setUpCamera() {

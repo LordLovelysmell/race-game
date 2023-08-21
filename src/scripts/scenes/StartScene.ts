@@ -10,7 +10,7 @@ class StartScene extends Scene {
     super("Start");
   }
 
-  private create() {
+  create() {
     this._createBackground();
     this._createButtons();
     this._setEvents();
@@ -47,7 +47,7 @@ class StartScene extends Scene {
   }
 
   private _startGame() {
-    this.scene.start("Game");
+    this.scene.start("Game", { client: this._client });
   }
 
   private _requestGame() {
