@@ -6,6 +6,12 @@ interface Session {
   opponentSocket: Socket;
 }
 
+interface SyncData {
+  x: number;
+  y: number;
+  angle: number;
+}
+
 class SocketManager {
   private _sessions: Session[] = [];
 
@@ -13,6 +19,10 @@ class SocketManager {
     const io = new Server(server);
 
     io.on("connection", (socket) => {
+      socket.on("playermove", (data: SyncData) => {
+        this._onPlayerMove(socket, data);
+      });
+
       this._onConnection(socket);
     });
 
@@ -51,6 +61,22 @@ class SocketManager {
   private _startGame(session: Session) {
     session.playerSocket.emit("gamestart", { host: true });
     session.opponentSocket.emit("gamestart");
+  }
+
+  private _onPlayerMove(socket: Socket, data: SyncData) {
+    const session = this._sessions.find(
+      (session) =>
+        session.playerSocket === socket || session.opponentSocket === socket
+    );
+
+    if (session) {
+      const opponentSocket =
+        session.playerSocket === socket
+          ? session.opponentSocket
+          : session.playerSocket;
+
+      opponentSocket.emit("opponentmove", data);
+    }
   }
 }
 

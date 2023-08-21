@@ -4,7 +4,7 @@ import { Player } from "../classes/Player";
 import { Stats } from "../classes/Stats";
 import { StatsPanel } from "../classes/StatsPanel";
 import { StatsPopup } from "../classes/StatsPopup";
-import type { Client } from "../classes/Client";
+import type { Client, SyncData } from "../classes/Client";
 
 export interface Car {
   sprite: string;
@@ -40,7 +40,7 @@ class GameScene extends Scene {
   private _client: Client;
   private _opponent: Player | null;
 
-  constructor(data: any) {
+  constructor() {
     super("Game");
   }
 
@@ -69,6 +69,12 @@ class GameScene extends Scene {
         scene: this,
         isOpponent: true,
       });
+
+      this._client.on("data", (data: SyncData) => {
+        this._opponent.car.setX(data.x);
+        this._opponent.car.setY(data.y);
+        this._opponent.car.setAngle(data.angle);
+      });
     }
 
     this._stats = new Stats({ totalLaps: this._totalLaps });
@@ -88,6 +94,8 @@ class GameScene extends Scene {
     this._stats.update(deltaTime);
     this._statsPanel.render(this._stats.statistics);
     this._player.move(deltaTime / 1000);
+
+    this._sync();
   }
 
   private _onLapComplete(lap: number) {
@@ -113,6 +121,16 @@ class GameScene extends Scene {
     }
 
     return config;
+  }
+
+  private _sync() {
+    if (this._client) {
+      this._client.send({
+        x: this._player.car.x,
+        y: this._player.car.y,
+        angle: this._player.car.angle,
+      });
+    }
   }
 }
 
